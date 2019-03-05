@@ -1,0 +1,106 @@
+<!--
+<%= form_with(model: sample, local: true) do |form| %>
+  <% if sample.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sample.errors.count, "error") %> prohibited this sample from being saved:</h2>
+
+      <ul>
+      <% sample.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :タイトル %>
+    <%= form.text_field :title%>
+  </div>
+
+  <div class="field">
+    <%= form.label :内容 %>
+    <%= form.text_area :body%>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :onsenid, :value => params[:oid]%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit :投稿 %>
+  </div>
+<% end %>
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>レビューぺ―ジ</title>
+    <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <!-- Bulma Version 0.7.4-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.7.4/css/bulma.min.css" />
+  </head>
+  <body>
+    <%= form_with(model: sample, local: true) do |form| %>
+      <% if sample.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(sample.errors.count, "error") %> prohibited this sample from being saved:</h2>
+          <ul>
+            <% sample.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <section>
+        <div class="columns is-centered" style="margin-top: 80px;">
+          <div class="column is-three-fifths">
+            <div class="field">
+              <label class="label">レビュータイトル</label>
+              <div class="control">
+                <input class="input" type="text" placeholder="最も伝えたいポイントはなんですか？" name="sample[title]">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-three-fifths">
+            <div class="field">
+              <label class="label">内容</label>
+              <div class="control">
+                <textarea class="textarea" placeholder="気に入ったところ/気に入らなかったところはどこですか？" name="sample[body]"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <%= form.hidden_field :onsenid, :value => params[:oid]%>
+        </div>
+        <div class="columns is-centered">
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link"  onclick="location.href='/onsen_search/<%=params[:onsen_q]%>/<%=params[:pref]%>/<%=params[:id]%>'" type="submit" name="commit">Submit</button>
+            </div>
+            <div class="control">
+              <a class="button" onclick="location.href='/onsen_search/<%=params[:onsen_q]%>/<%=params[:pref]%>/<%=params[:id]%>'">Back</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--
+  <footer class="footer">
+  <div class="container">
+  <div class="content has-text-centered">
+  <p>
+  2019
+</p>
+</div>
+</div>
+</footer> -->
+    </body>
+  <% end %>
+</html>

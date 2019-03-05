@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>top</title>
+    <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <!-- Bulma Version 0.7.4-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.7.4/css/bulma.min.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <style>
+    .navbar {background-color: #2f3847;
+      min-height: 4.00rem;
+      position: relative;
+      z-index: 30;}
+      .footer{
+        background-color: #2f3847;
+        color:#fff;
+        margin-top: 3rem;
+      }
+
+      a {
+        color: #c57f1e;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .select select {
+        background-color: #fff;
+        border-color: #2f3847;
+        color: #363636;
+        cursor: pointer;
+        display: block;
+        font-size: 1em;
+        max-width: 100%;
+        outline: 0;
+      }
+      .select select:hover {
+        border-color: #2f3847;
+      }
+      .button.is-info.is-outlined {
+        margin-top: 5rem;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-menu">
+          <div class="navbar-start">
+            <a href="/#">
+              <figure>
+                 <%= image_tag("logo3.png",  :alt => "アイコン") %>
+              </figure>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section>
+      <div class="columns is-half">
+      <div class="column is-harf" style="position:relative; margin-left:300px; margin-top:200px;" >
+          <div container >
+        <div class="select is-harf">
+          <select id="ken_list">
+            <option value="">都道府県選択</option>
+            <option value="010000">北海道</option>
+            <option value="020000">青森県</option>
+            <option value="030000">岩手県</option>
+            <option value="040000">宮城県</option>
+            <option value="050000">秋田県</option>
+            <option value="060000">山形県</option>
+            <option value="070000">福島県</option>
+            <option value="080000">栃木県</option>
+            <option value="090000">群馬県</option>
+            <option value="100000">茨城県</option>
+            <option value="110000">埼玉県</option>
+            <option value="120000">千葉県</option>
+            <option value="130000">東京都</option>
+            <option value="140000">神奈川県</option>
+            <option value="150000">山梨県</option>
+            <option value="160000">長野県</option>
+            <option value="170000">新潟県</option>
+            <option value="180000">富山県</option>
+            <option value="190000">石川県</option>
+            <option value="200000">福井県</option>
+            <option value="210000">静岡県</option>
+            <option value="220000">岐阜県</option>
+            <option value="230000">愛知県</option>
+            <option value="240000">三重県</option>
+            <option value="250000">滋賀県</option>
+            <option value="260000">京都府</option>
+            <option value="270000">大阪府</option>
+            <option value="280000">兵庫県</option>
+            <option value="290000">奈良県</option>
+            <option value="300000">和歌山県</option>
+            <option value="310000">鳥取県</option>
+            <option value="320000">島根県</option>
+            <option value="330000">岡山県</option>
+            <option value="340000">広島県</option>
+            <option value="350000">山口県</option>
+            <option value="360000">徳島県</option>
+            <option value="370000">香川県</option>
+            <option value="380000">愛媛県</option>
+            <option value="390000">高知県</option>
+            <option value="400000">福岡県</option>
+            <option value="410000">佐賀県</option>
+            <option value="420000">長崎県</option>
+            <option value="430000">熊本県</option>
+            <option value="440000">大分県</option>
+            <option value="450000">宮崎県</option>
+            <option value="460000">鹿児島県</option>
+            <option value="470000">沖縄県</option>
+          </select>
+        </div>
+      </div>
+      <div container>
+        <div class="select is-harf" style="margin-top: 80px;">
+          <select id=numbers>
+            <option>お悩みを選択してください　</option>
+            <option value="1">自律神経不安定症</option>
+            <option value="5">不眠症</option>
+            <option value="16">うつ状態</option>
+            <option value="4">冷え性</option>
+            <option value="6">皮膚乾燥症</option>
+            <option value="6">萎縮性胃炎</option>
+            <option value="3">便秘</option>
+            <option value="8">胃十二指腸潰瘍</option>
+            <option value="8">逆流性食道炎</option>
+            <option value="10">胆道系機能障害</option>
+            <option value="11">胃腸機能低下</option>
+            <option value="12">貧血</option>
+            <option value="15">アトピー性皮膚炎</option>
+            <option value="15">異常乾燥皮膚炎</option>
+            <option value="15">表皮化膿症</option>
+            <option value="14">慢性湿疹</option>
+            <option value="17">関節リウマチ</option>
+            <option value="2">にきび</option>
+            <option value="2">肌荒れ</option>
+            <option value="2">神経痛</option>
+            <option value="4">出血性疾患</option>
+            <option value="7">慢性皮膚病</option>
+            <option value="7">胃酸欠乏症</option>
+            <option value="13">腰痛</option>
+          </select>
+          <p class="has-text-centered">
+        <a href="#" id="link" class="button is-medium is-info is-outlined">検索する</a>
+      </p>
+        </div>
+        
+      </div>
+      
+      </div>
+      <div class="column is-half">
+          <div figure>
+          <%= image_tag("japan.png",  :alt => "アイコン") %>
+          </div>
+        </div>
+      </div>
+      <script type="text/javascript">
+        $(function(){
+          $("#link").click(function(){
+              var param_1 = $("#ken_list").val();
+              var param_2 = $("#numbers").val();
+              if (param_1 != "" && param_2 != ""){
+                  //文字が入ってる時だけ
+                  param_1 = escape(param_1);
+                  param_2 = escape(param_2);
+                  //エスケープ処理
+                  $(this).attr("href","/onsen_search/" + param_2 + "/" + param_1);
+                  // window.location.href=""./aaa.php?param=" + param";
+              }else{
+                  //リンク無効
+                  return false;
+              }
+          });
+        });
+      </script>
+      
+    </section>
+    <footer class="footer" >
+    <div  class="content has-text-centered"> 2019 ©teamC </div>
+  </footer>
+  </body>
+</html>

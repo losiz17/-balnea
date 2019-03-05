@@ -1,0 +1,180 @@
+<!-- <table>
+  <tr>
+    <th>
+      <%= link_to "タイトル", sort: "title" %>
+    </th>
+    <th>
+      <%= link_to "内容", sort: "body" %>
+    </th>
+    <th>
+      <%= link_to "投稿時間", sort: "created_at" %>
+    </th>
+    <th>
+      <%= link_to "温泉ID", sort: "onsenid" %>
+    </th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+ <% if @samples != nil %>
+  <tbody>
+    <% @samples.each do |sample| %>
+      <tr>
+        <td><%= sample.title %></td>
+        <td><%= sample.body %></td>
+        <td><%= sample.created_at %></td>
+        <td><%= sample.onsenid %></td>
+        <td><%= link_to '表示', sample %></td>
+        <td><%= link_to '編集', edit_sample_path(sample) %></td>
+        <td><%= link_to '削除', sample, method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <% end %>
+</table>
+
+<br>
+
+<%= link_to '投稿する','http://localhost:3000/onsen_search/' + params[:onsen_q] + '/' +params[:pref] + '/' + params[:id] + '/new/' + @OnsenID%>
+
+<br>
+<br>
+<br>
+
+ --->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>details</title>
+    <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <!-- Bulma Version 0.7.4-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.7.4/css/bulma.min.css" />
+    <style>
+      .navbar {background-color: #2f3847;
+       min-height: 4.00rem;
+       position: relative;
+       z-index: 30;
+       }
+       .footer{background-color: #2f3847;
+         color:#fff;
+       }
+       hr {
+         background-color: #2f3847;
+         border: none;
+         display: block;
+         height: 1.5px;
+         margin: 1.5rem 0;
+       }
+       .button.is-info.is-outlined {
+         background-color: transparent;
+         border-color: #2f3847;
+         color: #2f3847;
+       }
+       .button.is-info.is-outlined:hover {
+         background-color: #2f3847;
+         border-color: #c57f1e;
+         color: #c57f1e;
+      
+       }
+       .has-text-centered {
+         margin: 5px;
+       }
+
+       .column.is-5{
+         margin-left: 8rem;
+       }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-menu">
+          <div class="navbar-start">
+            <a href="/#">
+              <figure>
+                <%= image_tag("logo3.png", :alt => "アイコン") %>
+              </figure>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section class="hero is-fullheight is-default is-bold">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <div class="columns">
+            <div class="column is-5">
+              <figure class="image is-3by2">
+                <img src="http://www.buko-onsen.co.jp/wp-content/themes/buko-onsen/img/visual2.jpg" alt="Description">
+              </figure>
+            </div>
+            <div class="column is-6 is-offset-1">
+              <h2 class="title is-3">
+                <%= @name %>
+              </h2>
+              <p>- <%= @SmallArea %> -</p>
+       
+              <p>- <%= @NatureOfOnsen %> -</p>
+                     <br>
+              <p><%= @OnsenAreaCaption %></p>
+              <br>
+              <p class="has-text-centered">
+                <!-- ↓↓URLにはじゃらんのサイト？じゃなくてホテル一覧 -->
+                <a href='/hotel/<%=@OnsenID.to_s %>' class="button is-medium is-info is-outlined">宿を探す</a>
+              </p>
+              
+              <!-- レビュー -->
+              <article class="media">
+                <div class="media-content">
+                 <p class="has-text-centered">
+          <a href='http://localhost:3000/onsen_search/<%=params[:onsen_q]%>/<%=params[:pref]%>/<%=params[:id]%>/new/<%=@OnsenID%>'  class="button is-medium is-info is-outlined">
+              温泉のレビューを書く
+          </a></p>
+          <p id="notice"><%= notice %></p>
+                  <div class="field">
+                    <% if @samples != nil %>
+                      <div class="textarea" style="margin-top: 50px;  overflow-y: scroll; height:190px;">
+                        <div class="content">
+                          <% @samples.each do |sample| %>
+                            <p>
+                              <strong><%= sample.title %></strong>
+                              <br>
+                              <br>
+                              <%= sample.body %>
+                              <br>
+                              <%= sample.created_at %>
+                              <%= sample.onsenid %>
+                              <td><%= link_to '表示', sample %></td>
+                              <td><%= link_to '編集', edit_sample_path(sample) %></td>
+                              <td><%= link_to '削除', sample, method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+                            </p>
+                            <hr width="90%" style="margin-left:20px">
+                            <p>
+                            </textarea>
+                          </p>
+                        <% end %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+           
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<footer class="footer" >
+    <div  class="content has-text-centered"> 2019 ©teamC </div>
+  </footer>
+</body>
+</html>

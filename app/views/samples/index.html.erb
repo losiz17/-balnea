@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+<h1>口コミ</h1>
+<table>
+  <tr>
+    <th>
+      <%= link_to "タイトル", sort: "title" %>
+    </th>
+    <th>
+      <%= link_to "内容", sort: "body" %>
+    </th>
+    <th>
+      <%= link_to "投稿時間", sort: "created_at" %>
+    </th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr
+ 
+  <tbody>
+  <% @samples.each do |sample| %>
+    <tr>
+      <td><%= sample.title %></td>
+      <td><%= sample.body %></td>
+      <td><%= sample.created_at %></td>
+      <td><%= link_to '表示', sample %></td>
+      <td><%= link_to '編集', edit_sample_path(sample) %></td>
+      <td><%= link_to '削除', sample, method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+<br>
+<%= link_to '投稿する', new_sample_path %>

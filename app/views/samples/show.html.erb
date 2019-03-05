@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>タイトル:</strong>
+  <%= @sample.title %>
+</p>
+<p>
+  <strong>内容:</strong>
+  <%= @sample.body %>
+</p>
+<%= link_to '編集', edit_sample_path(@sample) %> |
+<%= link_to '戻る', samples_path %>

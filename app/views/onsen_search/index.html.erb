@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>温泉　検索結果表示</title>
+  <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css'>
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <style type="text/css">
+    .hero.is-link .title {
+        color: #000;
+    }
+    .hero.is-link {
+        background-color: #FFF;
+    }
+    .navbar {
+      background-color: #2f3847;
+      min-height: 4.00rem;
+      position: relative;
+      z-index: 30;
+    }
+    .footer{
+      background-color: #2f3847;
+      color:#fff;
+      margin-top: 40rem;
+    }
+    .card-content {
+      height: 17rem;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- START NAV -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <a href="/#">
+            <figure>
+              <%= image_tag("logo3.png",  :alt => "アイコン") %>
+            </figure>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- END NAV -->
+  <section class="her is-fullheight-with-navbar">
+    <div class="container">
+      <div class="section">
+        <!-- Staff -->
+        <!-- ↓↓一行で3個表示するよう指定している -->
+        <div class="row columns is-multiline">
+          <% @result.each do |result| %>
+          <% if @result["Results"]["NumberOfResults"].to_i == 0%>
+            <p>検索結果がありませんでした</p>
+          <%end%>
+            <% if @result["Results"]["NumberOfResults"].to_i != 0 && @result["Results"]["NumberOfResults"].to_i != 1%>
+              <% arrayNum = @result["Results"]["Onsen"].length-1 %>
+              <% for i in 0..arrayNum%>
+                <div class="column is-one-third">
+                  <a href='/onsen_search/<%=params[:onsen_q]%>/<%=params[:pref]%>/<%=(i+1).to_s%>'>
+                    <div class="card large round">
+                      <div class="card-image">
+                        <figure class="image is-3by2">
+                          <img src="http://www.buko-onsen.co.jp/wp-content/themes/buko-onsen/img/visual2.jpg" alt="Image">
+                        </figure>
+                      </div>
+                      <div class="card-content">
+                        <div class="media">
+                          <div class="media-content">
+                            <p class="title is-4 no-padding"><%= @result["Results"]["Onsen"][i]["OnsenName"] %></p>
+                          </div>
+                        </div>
+                        <p> <%= @result["Results"]["Onsen"][i]["Area"]["SmallArea"]%> </p>
+                        <p> <%= @result["Results"]["Onsen"][i]["NatureOfOnsen"]%> <br>
+                          <br>
+                          <p><%= @result["Results"]["Onsen"][i]["OnsenAreaCaption"]%></p>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                <% end %>
+              <% end %>
+            <% end %>
+            <% if @result["Results"]["NumberOfResults"].to_i == 1%>
+              <div class="column is-one-third">
+                <a href='/onsen_search/<%=params[:onsen_q]%>/<%=params[:pref]%>/1'>
+                  <div class="card large round">
+                    <div class="card-image">
+                      <figure class="image is-3by2">
+                        <img src="http://www.buko-onsen.co.jp/wp-content/themes/buko-onsen/img/visual2.jpg" alt="Image">
+                      </figure>
+                    </div>
+                    <div class="card-content">
+                      <div class="media">
+                        <div class="media-content">
+                          <p class="title is-4 no-padding"><%= @result["Results"]["Onsen"]["OnsenName"] %></p>
+                        </div>
+                      </div>
+                      <p><%= @result["Results"]["Onsen"]["Area"]["SmallArea"]%></p>
+                      <p><%= @result["Results"]["Onsen"]["NatureOfOnsen"]%><br>
+                        <p><%= @result["Results"]["Onsen"]["OnsenAreaCaption"]%></p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              <%end%>
+            </div>
+            <!-- End Staff -->
+          </div>
+        </div>
+      </section>
+      <footer class="footer" >
+        <div  class="content has-text-centered"> 2019 ©teamC </div>
+      </footer>
+    </body>
+  </html>
