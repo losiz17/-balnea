@@ -1,24 +1,9 @@
-# README
+# balnea
+- 美容の悩みから適した温泉を紹介してくれるサービス
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Thanks
+- じゃらん：　https://www.jalan.net/jw/jwp0000/jww0001.do
+  - じゃらん宿表示API
+  - 温泉検索API
+  
+# 
