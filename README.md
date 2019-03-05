@@ -2,7 +2,7 @@
 - ハッカソンテーマ： 新しいbeautyに関するサービス
 - 製作物： 美容の悩みから適した温泉を紹介してくれるサービス
 
-# 環境
+# Requirements
 - Rails 5.1.6
 - Ruby 2.5.3
 - PosgreSQL
