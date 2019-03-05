@@ -27,7 +27,7 @@ $ rails s
 
 - Responsive support
 
-<img src="https://user-images.githubusercontent.com/27879820/53819002-6e5ca180-3fac-11e9-9687-12e28514f8c5.png" width="">
+<img src="https://user-images.githubusercontent.com/27879820/53819002-6e5ca180-3fac-11e9-9687-12e28514f8c5.png" width=50%>
 
 
 
